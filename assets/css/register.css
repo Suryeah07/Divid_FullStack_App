@@ -1,0 +1,114 @@
+/* ---------- MAIN LAYOUT ---------- */
+.main-content {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px 16px;
+}
+
+/* ---------- CARD ---------- */
+.card {
+    background: var(--card-bg, rgba(255, 255, 255, 0.7));
+    border-radius: var(--radius, 12px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.15));
+    width: 100%;
+    max-width: 460px;
+    padding: 36px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 16px 48px rgba(108, 92, 231, 0.15);
+}
+
+.card p {
+    font-weight: 600;
+    font-size: 1.05rem;
+    margin: 8px 0 0;
+    color: var(--text-color);
+    opacity: 0.85;
+}
+
+.card label {
+    font-weight: 600;
+    font-size: 0.95rem;
+    align-self: flex-start;
+    color: var(--text-color);
+}
+
+.card input {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid rgba(108, 92, 231, 0.2);
+    background: rgba(255, 255, 255, 0.6);
+    font-size: 0.95rem;
+    font-family: inherit;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    color: var(--text-color, #1a1a2e);
+}
+
+body.dark .card input {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.15);
+    color: #e0e0e0;
+}
+
+.card input:focus {
+    outline: none;
+    border-color: var(--primary, #6c5ce7);
+    box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.15);
+}
+
+.card button[type="submit"],
+#registerbutton,
+#loginbutton,
+#createbutton {
+    padding: 12px 32px;
+    border-radius: 50px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    width: max-content;
+    margin-top: 4px;
+}
+
+/* ---------- UTIL ---------- */
+.hidden {
+    display: none;
+}
+
+.backBtn {
+    align-self: flex-start;
+    background: rgba(0, 0, 0, 0.08) !important;
+    color: var(--text-color, #1a1a2e);
+    font-size: 0.9rem;
+    padding: 8px 14px;
+    border-radius: 8px;
+}
+
+.backBtn:hover {
+    background: rgba(0, 0, 0, 0.15) !important;
+}
+
+body.dark .backBtn {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: #e0e0e0;
+}
+
+body.dark .backBtn:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+}
+
+@media (max-width: 500px) {
+    .card {
+        padding: 24px 20px;
+    }
+}
