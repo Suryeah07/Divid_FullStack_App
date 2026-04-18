@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIVID - CONTACT US</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/logo.png">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="../assets/css/navbar.css">
+    <link rel="stylesheet" href="../assets/css/contact.css">
+</head>
+
+<body>
+
+    <nav>
+        <div class="left">
+            <a href="../index.html">
+                <img src="../assets/images/logo.png" alt="Logo" width="75" height="75">
+            </a>
+            <div class="container">
+                <div class="txt">
+                    <h1 data-text="DIVID">DIVID</h1>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <ul class="right">
+                <li> <button class="theme-toggle">🌙</button></li>
+                <li> <a href="../index.html">Home</a>
+                </li>
+                <li> <a href="./about.html">About Us</a>
+                </li>
+                <li> <a href="./contact.html" class="activeTab">Contact Us</a>
+                </li>
+                <li> <a href="./register.html">Register / Sign In</a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <button id="menu_toggle">
+                <img src="../assets/images/menu.png" alt="Logo" width="75" height="75">
+            </button>
+        </div>
+    </nav>
+    <div>
+        <ul class="dropdown">
+            <li> <button class="theme-toggle">🌙</button></li>
+            <li> <a href="../index.html">Home</a>
+            </li>
+            <li> <a href="./about.html">About Us</a>
+            </li>
+            <li> <a href="./contact.html" class="activeTab">Contact Us</a>
+            </li>
+                <li> <a href="./register.html">Register / Sign In</a>
+            </li>
+        </ul>
+    </div>
+    <form id="contact_form" class="contact_form" action="#" method="post">
+
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Please enter your name" required>
+
+        <br>
+
+        <label for="email">Email ID</label>
+        <input type="email" id="email" name="email" placeholder="Please enter your email" required>
+
+        <br>
+
+        <div class="radio-group">
+            <input type="radio" id="query" name="type" value="Query">
+            <label for="query">Query</label>
+
+            <input type="radio" id="feedback" name="type" value="Feedback">
+            <label for="feedback">Feedback</label>
+        </div>
+
+        <br><br>
+
+        <label for="message">Your Message</label>
+        <textarea id="message" name="message" rows="4" placeholder="Write your message here..." required></textarea>
+
+        <br><br>
+
+        <button type="submit" id="submit" style="background: rgb(74, 101, 221); color: white;">
+            Submit
+        </button>
+
+    </form>
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+  (function () {
+    emailjs.init("lPDtRQCRx--eYAUCw"); // ✅ Your PUBLIC KEY
+  })();
+</script>
+    <footer class="site-footer">
+        <p>© 2025 <a href="../index.html">DIVID</a> — Split smart, stay friends.</p>
+    </footer>
+    <script src="../assets/js/contact.js"></script>
+    <script src="../assets/js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DIVID - Register / Sign In</title>
+
+    <link rel="icon" href="../assets/images/logo.png" />
+    <link rel="stylesheet" href="../assets/css/navbar.css" />
+    <link rel="stylesheet" href="../assets/css/register.css" />
+</head>
+
+<body>
+
+    <!-- ================= NAV ================= -->
+    <nav>
+        <div class="left">
+            <a href="../index.html">
+                <img src="../assets/images/logo.png" alt="Logo" width="75" height="75">
+            </a>
+            <div class="container">
+                <div class="txt">
+                    <h1 data-text="DIVID">DIVID</h1>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <ul class="right">
+                <li> <button class="theme-toggle">🌙</button></li>
+                <li> <a href="../index.html">Home</a>
+                </li>
+                <li> <a href="./about.html">About Us</a>
+                </li>
+                <li> <a href="./contact.html">Contact Us</a>
+                </li>
+                <li> <a href="./register.html"  class="activeTab">Register / Sign In</a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <button id="menu_toggle">
+                <img src="../assets/images/menu.png" alt="Logo" width="75" height="75">
+            </button>
+        </div>
+    </nav>
+        <div>
+        <ul class="dropdown">
+            <li> <button class="theme-toggle">🌙</button></li>
+            <li> <a href="../index.html">Home</a>
+            </li>
+            <li> <a href="./about.html">About Us</a>
+            </li>
+            <li> <a href="./contact.html">Contact Us</a>
+            </li>
+                <li> <a href="./register.html"  class="activeTab">Register / Sign In</a>
+            </li>
+        </ul>
+    </div>
+    <main class="main-content">
+        <!-- ================= HOME ================= -->
+        <div id="registerhome" class="card">
+            <p>New User?</p>
+            <button id="registerbutton">Sign Up</button>
+
+            <p>Already have an account?</p>
+            <button id="loginbutton">Login</button>
+        </div>
+
+        <!-- ================= REGISTER ================= -->
+        <form id="register_form" class="card hidden">
+            <button type="button" class="backBtn">⬅ Back</button>
+
+            <label for="reg_name">Name</label>
+            <input id="reg_name" type="text" required />
+
+            <label for="reg_email">Email</label>
+            <input id="reg_email" type="email" required />
+
+            <label for="reg_password">Password</label>
+            <input id="reg_password" type="password" required />
+
+            <label for="reg_confirm">Confirm Password</label>
+            <input id="reg_confirm" type="password" required />
+
+            <button type="submit" id="createbutton">Create Account</button>
+        </form>
+
+        <!-- ================= LOGIN ================= -->
+        <form id="login_form" class="card hidden">
+            <button type="button" class="backBtn">⬅ Back</button>
+
+            <label for="login_email">Email</label>
+            <input id="login_email" type="email" required />
+
+            <label for="login_password">Password</label>
+            <input id="login_password" type="password" required />
+
+            <button type="submit">Login</button>
+        </form>
+    </main>
+    <footer class="site-footer">
+        <p>© 2025 <a href="../index.html">DIVID</a> — Split smart, stay friends.</p>
+    </footer>
+    <script src="../assets/js/register.js"></script>
+    <script src="../assets/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+  (function () {
+    emailjs.init("lPDtRQCRx--eYAUCw"); // ✅ Your PUBLIC KEY
+  })();
+</script>
+</body>
+
+</html>

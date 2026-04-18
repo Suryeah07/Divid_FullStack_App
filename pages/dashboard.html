@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DIVID – Dashboard</title>
+
+    <link rel="icon" href="../assets/images/logo.png" />
+    <link rel="stylesheet" href="../assets/css/navbar.css" />
+    <link rel="stylesheet" href="../assets/css/dashboard.css" />
+</head>
+
+<body>
+
+<!-- ================= NAV ================= -->
+ <nav>
+        <div class="left">
+            <a href="./dashboard.html">
+                <img src="../assets/images/logo.png" alt="Logo" width="75" height="75">
+            </a>
+            <div class="container">
+                <div class="txt">
+                    <h1 data-text="DIVID">DIVID</h1>
+                </div>
+            </div>
+
+        </div>
+
+        <div>
+            <ul class="right">
+                <li> <button class="theme-toggle">🌙</button></li>
+                <li> <a href="./dashboard.html" class="activeTab">Dashboard</a></li>
+                <li>
+                    <div class="profile-wrapper">
+                        <div class="profile-icon" id="profileIcon" title="Profile"></div>
+                        <div class="profile-card" id="profileCard">
+                            <h3>Welcome 🎉</h3>
+                            <p id="userName"></p>
+                            <p id="userEmail"></p>
+                            <button onclick="logout()">Logout</button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+             <div>
+            <button id="menu_toggle">
+                <img src="../assets/images/menu.png" alt="Logo" width="75" height="75">
+            </button>
+        </div>
+    </nav>
+
+ <div>
+        <ul class="dropdown">
+            <li> <button class="theme-toggle" >🌙</button></li>
+            <li> <a href="./dashboard.html" class="activeTab">Dashboard</a></li>
+            <li>
+                <p style="color:var(--accent);font-weight:700;margin:4px 0;" id="mobileUserName"></p>
+                <p style="color:var(--text-color);font-size:0.85rem;margin:2px 0;" id="mobileUserEmail"></p>
+            </li>
+            <li><button onclick="logout()" style="width:100%;">Logout</button></li>
+        </ul>
+    </div>
+<!-- ================= CONTENT ================= -->
+<div class="dashboard-layout">
+    <aside class="sidebar">
+        <button class="sidebar-btn active" data-tooltip="Dashboard" data-section="dashboardSection">📊</button>
+        <button class="sidebar-btn" data-tooltip="Add Expense" data-section="addExpenseSection">➕</button>
+        <button class="sidebar-btn" data-tooltip="Friends" data-section="friendsSection">👥</button>
+        <button class="sidebar-btn" data-tooltip="History" data-section="historySection">📋</button>
+        <button class="sidebar-btn" data-tooltip="Settings" data-section="settingsSection">⚙️</button>
+    </aside>
+    <main class="main-area">
+
+        <!-- Dashboard Section -->
+        <div id="dashboardSection" class="content-section">
+            <h2 class="expense-title">📊 Dashboard</h2>
+            <p class="section-desc">Welcome back! Select an option from the sidebar to get started.</p>
+        </div>
+
+        <!-- Add Expense Section -->
+        <div id="addExpenseSection" class="content-section hidden">
+            <button type="button" class="back-btn" onclick="document.querySelector('.sidebar-btn[data-section=dashboardSection]').click()">⬅ Back</button>
+            <h2 class="expense-title">💸 Add Expense</h2>
+            <form id="expense_form" class="expense-form">
+
+                <!-- Expense Title -->
+                <div class="form-group">
+                    <label for="expenseTitle">Occasion / Title</label>
+                    <input type="text" id="expenseTitle" name="expenseTitle" placeholder="e.g. Dinner, Trip, Groceries" required>
+                </div>
+
+                <!-- Total Amount -->
+                <div class="form-group">
+                    <label for="currencyInput">Total Amount</label>
+                    <div class="amount-input-wrapper">
+                        <span class="currency-symbol">₹</span>
+                        <input type="number" id="currencyInput" min="1" max="5000000" step="any" placeholder="0.00" required>
+                    </div>
+                </div>
+
+                <!-- Split Type -->
+                <div class="form-group">
+                    <label>Split Type</label>
+                    <div class="radio-group split-type-group">
+                        <label class="radio-option" for="splitEqual">
+                            <input type="radio" id="splitEqual" name="splitType" value="equal" checked>
+                            <span class="radio-label">⚖️ Split Equally</span>
+                        </label>
+                        <label class="radio-option" for="splitFullPaid">
+                            <input type="radio" id="splitFullPaid" name="splitType" value="fullPaid">
+                            <span class="radio-label">💳 I Paid Fully</span>
+                        </label>
+                        <label class="radio-option" for="splitBorrowed">
+                            <input type="radio" id="splitBorrowed" name="splitType" value="borrowed">
+                            <span class="radio-label">🤝 I Borrowed</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Friends List -->
+                <div class="form-group">
+                    <label>Friends</label>
+                    <div id="friendsList" class="friends-list">
+                        <div class="friend-entry">
+                            <input type="text" name="friend" placeholder="Enter friend's name" required>
+                            <button type="button" class="remove-friend-btn" title="Remove" disabled>✕</button>
+                        </div>
+                    </div>
+                    <button type="button" id="addFriendBtn" class="add-friend-btn">+ Add Friend</button>
+                </div>
+
+                <!-- Split Preview -->
+                <div id="splitPreview" class="split-preview hidden">
+                    <p class="split-preview-text"></p>
+                </div>
+
+                <button type="submit" id="submit" class="expense-submit-btn">Add Expense</button>
+            </form>
+        </div>
+
+        <!-- Friends Section -->
+        <div id="friendsSection" class="content-section hidden">
+            <h2 class="expense-title">👥 Friends</h2>
+            <p class="section-desc">Your friends list will appear here.</p>
+        </div>
+
+        <!-- History Section -->
+        <div id="historySection" class="content-section hidden">
+            <h2 class="expense-title">📋 History</h2>
+            <p class="section-desc">Your expense history will appear here.</p>
+        </div>
+
+        <!-- Settings Section -->
+        <div id="settingsSection" class="content-section hidden">
+            <h2 class="expense-title">⚙️ Settings</h2>
+            <p class="section-desc">Settings and preferences will appear here.</p>
+        </div>
+
+    </main>
+</div>
+
+<script src="../assets/js/dashboard.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/script.js"></script>
+</body>
+</html>
