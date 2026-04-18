@@ -280,12 +280,14 @@ button:active { transform: translateY(0); }
 
 /* ===================== CAROUSEL ===================== */
 .carousel, .carousel-inner, .carousel-item {
-  height: calc(100vh - 80px);
+  max-height: calc(100vh - 80px);
 }
 
 .carousel-img {
-  height: 100%;
-  object-fit: cover;
+  width: 100%;
+  height: auto;
+  max-height: calc(100vh - 80px);
+  object-fit: contain;
 }
 
 .carousel-item button {
